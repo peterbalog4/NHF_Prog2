@@ -1,6 +1,6 @@
 #include "osszetevo.h"
 #include <iostream>
-
+#include "memtrace.h"
 #include <string>
 // Az Osszetevo class "alap" elemei
 

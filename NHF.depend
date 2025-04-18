@@ -1,13 +1,66 @@
 # depslib dependency file v1.0
-1744985611 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
+1744999864 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
 	<iostream>
 	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
 
-1744985715 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
+1744998650 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
 	<string>
+	"memtrace.h"
 
-1744985743 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
+1744998641 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
 	"osszetevo.h"
 	<iostream>
+	"memtrace.h"
 	<string>
+
+1744998546 source:c:\users\ada\documents\peti\nhf\nhf\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1744998546 c:\users\ada\documents\peti\nhf\nhf\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<random>
+	<iterator>
+	<regex>
+
+1744998546 c:\users\ada\documents\peti\nhf\nhf\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<cstdlib>
+	<string>
+	<fstream>
+	<iterator>
+	<regex>
+	"memtrace.h"
+
+1745000165 c:\users\ada\documents\peti\nhf\nhf\konyv.h
+	"osszetevo.h"
+	"memtrace.h"
 

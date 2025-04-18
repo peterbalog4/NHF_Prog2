@@ -2,6 +2,7 @@
 #define OSSZETEVO_H_INCLUDED
 
 #include <string>
+#include "memtrace.h"
 // Az összetevõ osztály objektumai alkotják majd az összetevõ listát.
 class Osszetevo{
 
