@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1744985611 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
+	<iostream>
+	"osszetevo.h"
+
+1744985715 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
+	<string>
+
+1744985743 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
+	"osszetevo.h"
+	<iostream>
+	<string>
+
