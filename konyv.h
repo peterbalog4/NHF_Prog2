@@ -17,6 +17,7 @@ public:
     Konyv();
     void AddOsszetevo(Osszetevo o);
     void RemoveOsszetevo(int idx);
+    void ListOsszetevo();
     Konyv(std::istream is);
     int GetOMeret();
     ~Konyv();

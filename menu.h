@@ -8,7 +8,7 @@ private:
 
 public:
     void run();
-    void backtomainmenu();
+    bool backtomainmenu(char* str);
     void navigal(int idx);
 
 };

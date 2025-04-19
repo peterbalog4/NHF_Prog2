@@ -48,7 +48,12 @@ void Konyv::RemoveOsszetevo(int idx){
     }
 }
 
+void Konyv::ListOsszetevo(){
+    for(int i=0;i<o_meret;i++){
+        std::cout << all_osszetevo[i].GetNev() << "|" << all_osszetevo[i].GetMertekegyseg() << std::endl;
+    }
 
+}
 //Destruktor
 Konyv::~Konyv(){
 

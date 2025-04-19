@@ -19,56 +19,77 @@ void Menu::run(){
 
 
 
-    // A recepteskönyv és felépítése
+    // A recepteskÃ¶nyv Ã©s felÃ©pÃ­tÃ©se
     Konyv k;
-    // A konkrét menü
-
-    std::cout << "Koktélos Könyv\n" << "1. Összetevõk\n" << "2. Új recept\n" << "3. Receptek kezelése\n" << "4. Keresés\n" << "Választás:";
-    std::cin >> idx;
-    if(idx < 1 || idx > 4){
-        throw "Index hiba!";
-    }
-    switch(idx) {
-
-        case 1:{
-            std:: cout << "1. Új összetevõ megadása \n" << "2. Összetevõ törlése\n" << "3. Összetevõk listája\n" << "Választás:";
-            std::cin >> idx;
-            if(idx < 1 || idx > 3){
+    bool ready = true;
+    char* str;
+    // A konkrÃ©t menÃ¼
+    while(ready){
+        std::cout << "KoktÃ©los KÃ¶nyv\n" << "1. Ã–sszetevÃµk\n" << "2. Ãšj recept\n" << "3. Receptek kezelÃ©se\n" << "4. KeresÃ©s\n" << "VÃ¡lasztÃ¡s:";
+        std::cin >> idx;
+        if(idx < 1 || idx > 4){
             throw "Index hiba!";
-            }
-            switch(idx){
+        }
+        switch(idx) {
 
-                case 1:{
-                    Osszetevo o;
-                    std::string nev,mertek;
-                    std::cout << "Mi legyen az összetevõ neve?";
-                    std::cin >> nev;
-                    o.SetNev(nev);
-                    std::cout << "Mi legyen az összetevõ mértékegysége?";
-                    std::cin >> mertek;
-                    o.SetMertekegyseg(mertek);
-                    k.AddOsszetevo(o);
+            case 1:{
+                std:: cout << "1. Ãšj Ã¶sszetevÃµ megadÃ¡sa \n" << "2. Ã–sszetevÃµ tÃ¶rlÃ©se\n" << "3. Ã–sszetevÃµk listÃ¡ja\n" << "VÃ¡lasztÃ¡s:";
+                std::cin >> idx;
+                if(idx < 1 || idx > 3){
+                throw "Index hiba!";
+                }
+                switch(idx){
+
+                    case 1:{
+                        Osszetevo o;
+                        std::string nev,mertek;
+                        std::cout << "Mi legyen az Ã¶sszetevÃµ neve?";
+                        std::cin >> nev;
+                        o.SetNev(nev);
+                        std::cout << "Mi legyen az Ã¶sszetevÃµ mÃ©rtÃ©kegysÃ©ge?";
+                        std::cin >> mertek;
+                        o.SetMertekegyseg(mertek);
+                        k.AddOsszetevo(o);
+                        std::cout << "Next?";
+                        std::cin >> str;
+                        ready = backtomainmenu(str);
+                        break;
+                    }
+                    case 2:
+                        break;
+                    case 3:
+                        k.ListOsszetevo();
+                        std::cout << "Next?";
+                        std::cin >> str;
+                        ready = backtomainmenu(str);
+                        break;
+                    }
                     break;
                 }
-                case 2:
-                    break;
-                case 3:
-                    break;
-                }
+            case 2:{
                 break;
             }
-        case 2:{
-            break;
-        }
-        case 3:{
-            std:: cout << "1. Recept módosítása \n" << "2. Recept törlése\n" << "3. Receptek listája\n" << "Választás:";
-            std::cin >> idx;
-            break;
-        }
-        case 4:{
-            std:: cout << "1. Keresés név szerint \n" << "2. Nincs ötletem\n" << "Választás:";
-            std::cin >> idx;
-            break;
+            case 3:{
+                std:: cout << "1. Recept mÃ³dosÃ­tÃ¡sa \n" << "2. Recept tÃ¶rlÃ©se\n" << "3. Receptek listÃ¡ja\n" << "VÃ¡lasztÃ¡s:";
+                std::cin >> idx;
+                break;
+            }
+            case 4:{
+                std:: cout << "1. KeresÃ©s nÃ©v szerint \n" << "2. Nincs Ã¶tletem\n" << "VÃ¡lasztÃ¡s:";
+                std::cin >> idx;
+                break;
+            }
         }
     }
+}
+
+// EllenÅ‘rzi a readyt.
+bool Menu::backtomainmenu(char* str){
+    for(int i=0;i<strlen(str);i++){
+        str[i] = tolower(str[i]);
+    }
+    if(str == "igen"){
+        return true;
+    }
+    return false;
 }

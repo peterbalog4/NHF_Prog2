@@ -19,7 +19,6 @@ public:
     void WriteOsszetevo(std::ofstream& os);
     Osszetevo ReadOsszetevo(std::ifstream& is);
     ~Osszetevo();
-
 };
 
 #endif // OSSZETEVO_H_INCLUDED

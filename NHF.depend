@@ -1,20 +1,23 @@
 # depslib dependency file v1.0
-1744999864 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
+1745083796 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
 	<iostream>
 	"osszetevo.h"
 	"gtest_lite.h"
 	"memtrace.h"
 	"konyv.h"
+	"menu.h"
 
-1744998650 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
+1745084116 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
 	<string>
 	"memtrace.h"
 
-1744998641 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
+1745068522 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
 	"osszetevo.h"
 	<iostream>
+	<fstream>
 	"memtrace.h"
 	<string>
+	<cstring>
 
 1744998546 source:c:\users\ada\documents\peti\nhf\nhf\memtrace.cpp
 	<stdio.h>
@@ -60,7 +63,24 @@
 	<regex>
 	"memtrace.h"
 
-1745000165 c:\users\ada\documents\peti\nhf\nhf\konyv.h
+1745082458 c:\users\ada\documents\peti\nhf\nhf\konyv.h
 	"osszetevo.h"
 	"memtrace.h"
+
+1745082597 source:c:\users\ada\documents\peti\nhf\nhf\konyv.cpp
+	"konyv.h"
+	<iostream>
+	"memtrace.h"
+	<cstring>
+
+1745083696 c:\users\ada\documents\peti\nhf\nhf\menu.h
+
+1745084188 source:c:\users\ada\documents\peti\nhf\nhf\menu.cpp
+	<iostream>
+	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
+	"menu.h"
+	<windows.h>
 
