@@ -14,6 +14,10 @@ public:
     Osszetevo(std::string nev,std::string db="db");
     std::string GetNev();
     std::string GetMertekegyseg();
+    void SetNev(std::string knev);
+    void SetMertekegyseg(std::string kmertek);
+    void WriteOsszetevo(std::ofstream& os);
+    Osszetevo ReadOsszetevo(std::ifstream& is);
     ~Osszetevo();
 
 };

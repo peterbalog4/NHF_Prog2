@@ -32,13 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="konyv.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="konyv.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="gtest_lite.h" />
+		<Unit filename="konyv.cpp" />
+		<Unit filename="konyv.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="memtrace.cpp" />
+		<Unit filename="memtrace.h" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="osszetevo.cpp" />
 		<Unit filename="osszetevo.h" />
 		<Unit filename="test.cpp">

@@ -21,10 +21,10 @@ T* Array(T* oldarray, int oldmeret){
 
 //Könyv class fgvk
 
+//Konstruktor
 Konyv::Konyv(){}
 
-
-//Kéne ide egy fasza bõvítõs template
+//Összetevő kezelő fgvk
 void Konyv::AddOsszetevo(Osszetevo o){
     if(o_capacity <= o_meret){
         all_osszetevo = Array(all_osszetevo,o_capacity);
@@ -48,8 +48,11 @@ void Konyv::RemoveOsszetevo(int idx){
     }
 }
 
-Konyv::Konyv(std::istream is){}
 
-Konyv::~Konyv(){}
+//Destruktor
+Konyv::~Konyv(){
+
+
+}
 
 
