@@ -1,30 +1,20 @@
 # depslib dependency file v1.0
-1744999864 source:c:\users\ada\documents\peti\nhf\nhf\main.cpp
-	<iostream>
-	"osszetevo.h"
-	"gtest_lite.h"
-	"memtrace.h"
+1745855814 source:c:\users\190015\downloads\bpnhf3\konyv.cpp
 	"konyv.h"
-
-1744998650 c:\users\ada\documents\peti\nhf\nhf\osszetevo.h
-	<string>
-	"memtrace.h"
-
-1744998641 source:c:\users\ada\documents\peti\nhf\nhf\osszetevo.cpp
-	"osszetevo.h"
 	<iostream>
 	"memtrace.h"
-	<string>
+	<cstring>
 
-1744998546 source:c:\users\ada\documents\peti\nhf\nhf\memtrace.cpp
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	<ctype.h>
+1745857824 c:\users\190015\downloads\bpnhf3\konyv.h
+	"osszetevo.h"
+	"memtrace.h"
+	"recept.h"
+
+1745855814 c:\users\190015\downloads\bpnhf3\osszetevo.h
+	<string>
 	"memtrace.h"
 
-1744998546 c:\users\ada\documents\peti\nhf\nhf\memtrace.h
+1746770989 c:\users\190015\downloads\bpnhf3\memtrace.h
 	<new>
 	<cstdio>
 	<stdlib.h>
@@ -47,20 +37,16 @@
 	<iterator>
 	<regex>
 
-1744998546 c:\users\ada\documents\peti\nhf\nhf\gtest_lite.h
-	<iostream>
-	<cassert>
-	<cmath>
-	<cstring>
-	<limits>
-	<cstdlib>
+1745857802 c:\users\190015\downloads\bpnhf3\recept.h
+	"osszetevo.h"
 	<string>
-	<fstream>
-	<iterator>
-	<regex>
 	"memtrace.h"
 
-1745000165 c:\users\ada\documents\peti\nhf\nhf\konyv.h
-	"osszetevo.h"
+1746770996 source:c:\users\190015\downloads\bpnhf3\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
 	"memtrace.h"
 

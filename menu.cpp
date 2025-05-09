@@ -4,7 +4,7 @@
 #include "memtrace.h"
 #include "konyv.h"
 #include "menu.h"
-#ifndef WIN_32
+#if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
 #include <windows.h>
 #endif
 
@@ -23,9 +23,9 @@ void Menu::run(){
     Konyv k;
     // A konkrét menü
 
-    std::cout << "Koktélos Könyv\n" << "1. Összetevõk\n" << "2. Új recept\n" << "3. Receptek kezelése\n" << "4. Keresés\n" << "Választás:";
+    std::cout << "Koktélos Könyv\n" << "1. Összetevõk\n" << "2. Új recept\n" << "3. Receptek kezelése\n" << "4. Keresés\n" << "5. Kilépés\n" <<"Választás:";
     std::cin >> idx;
-    if(idx < 1 || idx > 4){
+    if(idx < 1 || idx > 5){
         throw "Index hiba!";
     }
     switch(idx) {
@@ -70,5 +70,7 @@ void Menu::run(){
             std::cin >> idx;
             break;
         }
+        case 5:
+            break;
     }
 }

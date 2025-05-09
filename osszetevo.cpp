@@ -5,7 +5,6 @@
 #include <string>
 #include <cstring>
 // Az Osszetevo class "alap" elemei
-
 // Konstruktorok
 Osszetevo::Osszetevo() : nev("ures"),mertekegyseg("db"){}
 Osszetevo::Osszetevo(std::string nev,std::string db) : nev(nev),mertekegyseg(db){}
@@ -33,15 +32,15 @@ void Osszetevo::SetMertekegyseg(std::string kmertek){
 void Osszetevo::WriteOsszetevo(std::ofstream& os){
 
     os << nev << "|" << mertekegyseg << std::endl;
+
 }
 
 Osszetevo Osszetevo::ReadOsszetevo(std::ifstream& is){
 
     Osszetevo o;
-    //is >> o.nev >> "|" >> o.mertekegyseg >> std::endl;
-    //if(o.nev == NULL){
-    //    return nullptr;
-    //}
+    char* temp;
+    std::getline(is,temp);
+    //???
     return o;
 }
 
