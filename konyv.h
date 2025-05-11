@@ -12,6 +12,8 @@ private:
     Recept* receptek;
     static int o_meret;
     static int o_capacity;
+    static int r_meret;
+    static int r_capacity;
 
 
 public:
@@ -23,9 +25,11 @@ public:
     void AddRecept(Recept r);
     void RemoveRecept(int idx);
     void ListReceptek();
-    Konyv(std::istream is);
     int GetOMeret();
     int GetOCapacity();
+    int GetRMeret();
+    int GetRCapacity();
+    Osszetevo GetOsszetevok(int idx);
     void save(std::ofstream& os);
     void load(std::ifstream& is);
     ~Konyv();

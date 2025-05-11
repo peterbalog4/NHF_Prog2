@@ -44,6 +44,8 @@
 		</Unit>
 		<Unit filename="osszetevo.cpp" />
 		<Unit filename="osszetevo.h" />
+		<Unit filename="recept.cpp" />
+		<Unit filename="recept.h" />
 		<Unit filename="test.cpp">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

@@ -9,6 +9,10 @@
 // Konstruktorok
 Osszetevo::Osszetevo() : nev("ures"),mertekegyseg("db"){}
 Osszetevo::Osszetevo(std::string nev,std::string db) : nev(nev),mertekegyseg(db){}
+Osszetevo::Osszetevo(const Osszetevo& o){
+    nev = o.nev;
+    mertekegyseg = o.mertekegyseg;
+}
 
 // Getter függvények
 std::string Osszetevo::GetNev() const{
@@ -44,12 +48,14 @@ Osszetevo Osszetevo::ReadOsszetevo(std::ifstream& is){
     std::string line;
     if (std::getline(is, line)) {
         std::istringstream iss(line);
-        std::string nev, mertekegyseg;
+        std::string knev, kmertekegyseg;
 
-        std::getline(iss, nev, '|');
-        std::getline(iss, mertekegyseg, '\n');
-
-        return Osszetevo(nev, mertekegyseg);
+        std::getline(iss, knev, '|');
+        std::getline(iss, kmertekegyseg, '\n');
+        // debug std::cout << "Nev: " << knev << ", Mertekegyseg: " << kmertekegyseg << std::endl;
+        nev = knev;
+        mertekegyseg = kmertekegyseg;
+        return *this;
     }
 
     throw std::runtime_error("Üres fájl vagy hibás formátum.");

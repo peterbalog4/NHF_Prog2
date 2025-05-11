@@ -11,7 +11,8 @@ private:
     std::string mertekegyseg;
 public:
     Osszetevo();
-    Osszetevo(std::string nev,std::string db="db");
+    Osszetevo(std::string nev,std::string db);
+    Osszetevo(const Osszetevo& o);
     std::string GetNev() const;
     std::string GetMertekegyseg() const;
     void SetNev(std::string knev);

@@ -41,7 +41,6 @@ void Menu::run(){
                 if(idx < 1 || idx > 3){
                     throw "Index hiba!";
                 }
-            }
             switch(idx){
 
                 case 1:{
@@ -69,7 +68,55 @@ void Menu::run(){
                     break;
                 }
             }
+            break;
+            }
+
             case 2:{
+                std::cout << "Mi legyen a recept neve?" << std::endl;
+                std::string nev;
+                std::getline(std::cin >> std::ws, nev);
+
+                std::cout << "Hány darab összetevőt szeretnél?" << std::endl;
+                int o_size;
+                std::cin >> o_size;
+                if(o_size <= 0){
+                    throw "hibás index!";
+                }
+                Osszetevo* osszetevok;
+                double* mennyisegek;
+                osszetevok = new Osszetevo[o_size];
+                mennyisegek = new double[o_size];
+
+                for(int i=0;i<o_size;i++){
+                    k.ListOsszetevok();
+                    std::cout << "Milyen összetevő kerüljön bele?" << std::endl;
+                    int idx2;
+                    std::cin >> idx2;
+                    osszetevok[i] = k.GetOsszetevok(idx2);
+                    std::cout << "Mennyi kerüljön bele?" << std::endl;
+                    double m;
+                    std::cin >> m;
+                    mennyisegek[i] = m;
+                }
+                std::cout << "Hány lépésből álljon a leírás?" << std::endl;
+                int el_size;
+                std::cin >> el_size;
+                if(el_size <= 0){
+                    throw "hibás index!";
+                }
+                std::string* leiras = new std::string[el_size];
+                for(int i=0;i<el_size;i++){
+                    std::cout << "Mi legyen a leírás " << i+1 << ". lépése?" << std::endl;
+                    std::string line;
+                    //fflush(stdin);
+                    std::getline(std::cin >> std::ws, line);
+                    leiras[i] = line;
+                }
+                Recept r(nev,mennyisegek,o_size,osszetevok,el_size,leiras);
+                delete[] leiras;
+                delete[] mennyisegek;
+                delete[] osszetevok;
+                k.AddRecept(r);
                 break;
             }
             case 3:{

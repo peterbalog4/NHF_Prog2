@@ -1,21 +1,71 @@
 #include "recept.h"
+#include "osszetevo.h"
+#include <fstream>
+#include <sstream>
 
-
-
-    /*std::string nev;
+    /*
+    std::string nev;
     double* mennyisegek;
     Osszetevo* osszetevok;
-    std::string* leiras;*/
+    std::string* leiras;
+    int o_size;
+    int el_size;*/
 
 //Konstruktorok
 Recept::Recept(): nev("ures"), mennyisegek(NULL),osszetevok(NULL),leiras(NULL){}
 
-//Recept(std::string knev,int m_size=0;double* kmennyisegek= NULL, int o_size=0, Osszetevo* kosszetevok = NULL,int el_size=0; std::string* kleiras = NULL);: nev(knev),mennyisegek(kmennyisegek),osszetevok(koszzetevok),leiras(kleiras), O_size(ko_size),m_size(km_size),el_size(kel_size){}
+Recept::Recept(std::string knev, double* kmennyisegek, int ko_size, Osszetevo* kosszetevok, int kel_size, std::string* kleiras) : nev(knev), o_size(ko_size), el_size(kel_size)
+{
+    mennyisegek = new double[o_size];
+    for (int i = 0; i < o_size; ++i)
+        mennyisegek[i] = kmennyisegek[i];
+
+    osszetevok = new Osszetevo[o_size];
+    for (int i = 0; i < o_size; ++i)
+        osszetevok[i] = kosszetevok[i];
+
+    leiras = new std::string[el_size];
+    for (int i = 0; i < el_size; ++i)
+        leiras[i] = kleiras[i];
+}
+
+Recept::Recept(const Recept& r) {
+        nev = r.nev;
+        o_size = r.o_size;
+        el_size = r.el_size;
+
+        mennyisegek = new double[o_size];
+        for (int i = 0; i < o_size; i++)
+            mennyisegek[i] = r.mennyisegek[i];
+
+        osszetevok = new Osszetevo[o_size];
+        for (int i = 0; i < o_size; i++)
+            osszetevok[i] = r.osszetevok[i];
+
+        leiras = new std::string[el_size];
+        for (int i = 0; i < el_size; i++)
+            leiras[i] = r.leiras[i];
+    }
 
 // Getterek
 
-std::string Recept::GetNev(){
+std::string Recept::GetNev() const{
     return nev;
+}
+int Recept::GetOSize() const{
+    return o_size;
+}
+int Recept::GetELSize() const{
+    return el_size;
+}
+double Recept::GetMennyiseg(int idx) const{
+    return mennyisegek[idx];
+}
+std::string Recept::GetLeiras(int idx) const{
+    return leiras[idx];
+}
+Osszetevo Recept::GetOsszetevo(int idx) const{
+    return osszetevok[idx];
 }
 
 //Setterek
@@ -26,12 +76,84 @@ void Recept::SetNev(std::string knev){
 
 // RW fgvk
 
-void WriteRecept(std::ofstream& os){
-
+void Recept::WriteRecept(std::ofstream& os){
+    os << nev << "|" << o_size << "|"<< el_size << "|";
+    for(int i=0; i<o_size; i++){
+        os << osszetevok[i].GetNev() << ";" << osszetevok[i].GetMertekegyseg();
+        os<< ",";
+    }
+    os << "|";
+    for(int i=0; i<o_size; i++){
+        os << mennyisegek[i];
+        os<< ",";
+    }
+    os << "|";
+    for(int i=0; i<el_size; i++){
+        os << leiras[i];
+        os<< ",";
+    }
+    os << std::endl;
 }
 
-Recept ReadRecept(std::ifstream& is){
+Recept Recept::ReadRecept(std::ifstream& is){
+    if (!is.is_open()) {
+        throw std::runtime_error("Nem sikerült megnyitni a fájlt:");
+    }
 
+    std::string line;
+    if (std::getline(is, line)) {
+
+        std::istringstream iss(line);
+
+        std::string o_size_str, el_size_str;
+
+        std::getline(iss, nev, '|');
+        std::getline(iss, o_size_str, '|');
+        std::getline(iss, el_size_str, '|');
+
+        o_size = std::stoi(o_size_str);
+        el_size = std::stoi(el_size_str);
+
+        mennyisegek = new double[o_size];
+        osszetevok = new Osszetevo[o_size];
+        leiras = new std::string[el_size];
+
+        std::string line2;
+        std::string line3;
+        std::string line4;
+        std::getline(iss, line2, '|');
+        std::getline(iss, line3, '|');
+        std::getline(iss, line4, '|');
+
+        std::istringstream iss2(line2);
+        std::istringstream iss3(line3);
+        std::istringstream iss4(line4);
+
+        for(int i=0; i<o_size;i++){
+            std::string o;
+            std::getline(iss2, o, ',');
+            std::istringstream iss_o(o);
+            std::string nev, mertekegyseg;
+            std::getline(iss_o,nev,';');
+            std::getline(iss_o,mertekegyseg);
+
+            osszetevok[i].SetNev(nev);
+            osszetevok[i].SetMertekegyseg(mertekegyseg);
+        }
+
+        for(int i=0; i<o_size;i++){
+            std::string value;
+            std::getline(iss3, value, ',');
+            mennyisegek[i] = std::stod(value);
+        }
+
+        for (int i = 0; i < el_size; i++) {
+            std::getline(iss4, leiras[i], ',');
+        }
+        return *this;
+    }
+
+    throw std::runtime_error("Üres fájl vagy hibás formátum.");
 }
 
 //Összetevő kezelő fgvk
@@ -52,9 +174,57 @@ void AddLeiras(std::string leiras);
 void RemoveLeiras(int idx);
 void ListLeiras();
 
+//Operátorok
+
+std::ostream& operator<<(std::ostream& os, const Recept& r){
+    os << r.GetNev();
+    os << "_____________________________";
+    for(int i=0;i<r.GetOSize();i++){
+        os << i << ".";
+        os << r.GetOsszetevo(i).GetNev() << r.GetMennyiseg(i) << r.GetOsszetevo(i).GetMertekegyseg() << std::endl;
+    }
+    os << "_____________________________";
+    for(int i=0;i<r.GetELSize();i++){
+        os << i << ".";
+        os << r.GetLeiras(i) << std::endl;
+    }
+    return os;
+}
+
+Recept& Recept::operator=(const Recept& r) {
+    if (this == &r) {
+        return *this;
+    }
+
+    delete[] mennyisegek;
+    delete[] osszetevok;
+    delete[] leiras;
+
+    nev = r.nev;
+    o_size = r.o_size;
+    el_size = r.el_size;
+
+    mennyisegek = new double[o_size];
+    for (int i = 0; i < o_size; ++i) {
+        mennyisegek[i] = r.mennyisegek[i];
+    }
+
+    osszetevok = new Osszetevo[o_size];
+    for (int i = 0; i < o_size; ++i) {
+        osszetevok[i] = r.osszetevok[i];
+    }
+
+    leiras = new std::string[el_size];
+    for (int i = 0; i < el_size; ++i) {
+        leiras[i] = r.leiras[i];
+    }
+
+    return *this;
+}
 //Destruktor
 
 Recept::~Recept(){
+    delete [] osszetevok;
+    delete [] leiras;
+    delete [] mennyisegek;
 }
-
-// A receptek egyelõre WIP. Elõbb a könyvet és a fájlbaírást akarom megcsinálni.

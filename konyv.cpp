@@ -8,7 +8,9 @@
 
 //static init
 int Konyv::o_meret = 0;
-int Konyv::o_capacity = 0;
+int Konyv::o_capacity = 10;
+int Konyv::r_meret = 0;
+int Konyv::r_capacity = 10;
 
 // Bővítő template
 template <typename T>
@@ -38,22 +40,17 @@ void Konyv::AddOsszetevo(Osszetevo o){
 
 void Konyv::RemoveOsszetevo(int idx){
     idx--;
-    if(idx > o_meret){
+    if(idx >= o_meret || idx < 0) {
         throw "Hibás index!";
     }
-    for(int i=0;i<o_meret;i++){
-        if(i < idx){
-            continue;
-        }
-        if(i > idx){
-            all_osszetevo[i-1] = all_osszetevo[i];
-        }
+    for(int i = idx; i < o_meret - 1; i++) {
+        all_osszetevo[i] = all_osszetevo[i + 1];
     }
-}
+    o_meret--;
 
 void Konyv::ListOsszetevok(){
     for(int i=0;i<o_meret;i++){
-        std::cout << all_osszetevo[i];
+        std::cout << i+1 <<"." << all_osszetevo[i] << std::endl;
     }
 }
 
@@ -75,6 +72,40 @@ void Konyv::load(std::ifstream& is){
         all_osszetevo[i].ReadOsszetevo(is);
     }
 }
+
+//Recept kezelő függvények
+void Konyv::AddRecept(Recept r){
+    if(r_capacity <= r_meret){
+        receptek = Array(receptek,r_capacity);
+        r_capacity += 10;
+    }
+    receptek[r_meret++] = r;
+}
+void RemoveRecept(int idx);
+void Konyv::ListReceptek(){
+    for(int i=0;i<r_meret;i++){
+        std::cout << i << "." << receptek[i] << std::endl;
+    }
+
+}
+
+//Getterek
+int Konyv::GetOMeret(){
+    return o_meret;
+}
+int Konyv::GetOCapacity(){
+    return o_capacity;
+}
+int Konyv::GetRMeret(){
+    return r_meret;
+}
+int Konyv::GetRCapacity(){
+    return r_capacity;
+}
+Osszetevo Konyv::GetOsszetevok(int idx){
+    return all_osszetevo[idx];
+}
+
 //Destruktor
 Konyv::~Konyv(){
     delete[] all_osszetevo;
