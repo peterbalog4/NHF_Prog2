@@ -27,7 +27,7 @@ public:
     int GetOMeret();
     int GetOCapacity();
     void save(std::ofstream& os);
-    Konyv load(std::ifstream& is);
+    void load(std::ifstream& is);
     ~Konyv();
 };
 

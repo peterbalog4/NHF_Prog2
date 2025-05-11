@@ -1,7 +1,10 @@
 #include "konyv.h"
+#include "osszetevo.h"
 #include <iostream>
 #include "memtrace.h"
 #include <cstring>
+#include <windows.h>
+#include <fstream>
 
 //static init
 int Konyv::o_meret = 0;
@@ -48,10 +51,33 @@ void Konyv::RemoveOsszetevo(int idx){
     }
 }
 
+void Konyv::ListOsszetevok(){
+    for(int i=0;i<o_meret;i++){
+        std::cout << all_osszetevo[i];
+    }
+}
 
+//Könyv save-load függvények
+
+void Konyv::save(std::ofstream& os){
+    os << o_meret << std::endl;
+    for(int i=0;i<o_meret;i++){
+        all_osszetevo[i].WriteOsszetevo(os);
+    }
+
+}
+void Konyv::load(std::ifstream& is){
+    is >> o_meret;
+    is.ignore();
+    o_capacity = o_meret + 10-o_meret%10;
+    all_osszetevo = new Osszetevo[o_capacity];
+    for(int i=0;i<o_meret;i++){
+        all_osszetevo[i].ReadOsszetevo(is);
+    }
+}
 //Destruktor
 Konyv::~Konyv(){
-
+    delete[] all_osszetevo;
 
 }
 

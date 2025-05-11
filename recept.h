@@ -3,6 +3,7 @@
 #include "osszetevo.h"
 #include <string>
 #include "memtrace.h"
+
 class Recept{
 
 private:
@@ -15,7 +16,7 @@ private:
     int m_size;
 public:
     Recept();
-    Recept(std::string knev,int km_size=0;double* kmennyisegek= NULL, int ko_size=0, Osszetevo* kosszetevok = NULL,int kel_size=0; std::string* kleiras = NULL);
+    /*Recept(std::string knev,int km_size=0, double* kmennyisegek=NULL, int ko_size=0, Osszetevo* kosszetevok = NULL,int kel_size=0, std::string* kleiras = NULL);*/
     std::string GetNev();
     void SetNev(std::string knev);
     void WriteRecept(std::ofstream& os);

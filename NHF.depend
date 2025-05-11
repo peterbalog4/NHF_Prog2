@@ -50,3 +50,102 @@
 	<ctype.h>
 	"memtrace.h"
 
+1746774261 source:c:\users\petib\downloads\nhf_prog2-main\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1746774261 c:\users\petib\downloads\nhf_prog2-main\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<random>
+	<iterator>
+	<regex>
+
+1746960036 source:c:\users\petib\downloads\nhf_prog2-main\main.cpp
+	<iostream>
+	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
+	"menu.h"
+	<windows.h>
+
+1746959529 c:\users\petib\downloads\nhf_prog2-main\osszetevo.h
+	<string>
+	"memtrace.h"
+
+1746774261 c:\users\petib\downloads\nhf_prog2-main\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<cstdlib>
+	<string>
+	<fstream>
+	<iterator>
+	<regex>
+	"memtrace.h"
+
+1746961111 c:\users\petib\downloads\nhf_prog2-main\konyv.h
+	"osszetevo.h"
+	"memtrace.h"
+	"recept.h"
+
+1746959100 c:\users\petib\downloads\nhf_prog2-main\recept.h
+	"osszetevo.h"
+	<string>
+	"memtrace.h"
+
+1746774261 c:\users\petib\downloads\nhf_prog2-main\menu.h
+
+1746961614 source:c:\users\petib\downloads\nhf_prog2-main\menu.cpp
+	<iostream>
+	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
+	"menu.h"
+	<windows.h>
+
+1746961832 source:c:\users\petib\downloads\nhf_prog2-main\konyv.cpp
+	"konyv.h"
+	"osszetevo.h"
+	<iostream>
+	"memtrace.h"
+	<cstring>
+	<windows.h>
+	<fstream>
+
+1746959202 source:c:\users\petib\downloads\nhf_prog2-main\recept.cpp
+	"recept.h"
+
+1746959539 source:c:\users\petib\downloads\nhf_prog2-main\osszetevo.cpp
+	"osszetevo.h"
+	<iostream>
+	<fstream>
+	"memtrace.h"
+	<string>
+	<cstring>
+	<sstream>
+
