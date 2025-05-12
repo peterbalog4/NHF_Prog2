@@ -81,7 +81,7 @@
 	<iterator>
 	<regex>
 
-1746960036 source:c:\users\petib\downloads\nhf_prog2-main\main.cpp
+1747068282 source:c:\users\petib\downloads\nhf_prog2-main\main.cpp
 	<iostream>
 	"osszetevo.h"
 	"gtest_lite.h"
@@ -107,19 +107,19 @@
 	<regex>
 	"memtrace.h"
 
-1746986980 c:\users\petib\downloads\nhf_prog2-main\konyv.h
+1747072160 c:\users\petib\downloads\nhf_prog2-main\konyv.h
 	"osszetevo.h"
 	"memtrace.h"
 	"recept.h"
 
-1746988529 c:\users\petib\downloads\nhf_prog2-main\recept.h
+1747068840 c:\users\petib\downloads\nhf_prog2-main\recept.h
 	"osszetevo.h"
 	<string>
 	"memtrace.h"
 
 1746774261 c:\users\petib\downloads\nhf_prog2-main\menu.h
 
-1746988851 source:c:\users\petib\downloads\nhf_prog2-main\menu.cpp
+1747071977 source:c:\users\petib\downloads\nhf_prog2-main\menu.cpp
 	<iostream>
 	"osszetevo.h"
 	"gtest_lite.h"
@@ -128,20 +128,23 @@
 	"menu.h"
 	<windows.h>
 
-1746987608 source:c:\users\petib\downloads\nhf_prog2-main\konyv.cpp
+1747072292 source:c:\users\petib\downloads\nhf_prog2-main\konyv.cpp
 	"konyv.h"
 	"osszetevo.h"
+	"recept.h"
 	<iostream>
 	"memtrace.h"
 	<cstring>
 	<windows.h>
 	<fstream>
+	<random>
 
-1746988774 source:c:\users\petib\downloads\nhf_prog2-main\recept.cpp
+1747071448 source:c:\users\petib\downloads\nhf_prog2-main\recept.cpp
 	"recept.h"
 	"osszetevo.h"
 	<fstream>
 	<sstream>
+	<iostream>
 
 1746988641 source:c:\users\petib\downloads\nhf_prog2-main\osszetevo.cpp
 	"osszetevo.h"

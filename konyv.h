@@ -30,8 +30,11 @@ public:
     int GetRMeret();
     int GetRCapacity();
     Osszetevo GetOsszetevok(int idx);
-    void save(std::ofstream& os);
-    void load(std::ifstream& is);
+    Recept GetReceptek(int idx);
+    void save(std::ofstream& os1,std::ofstream& os2);
+    void load(std::ifstream& is1,std::ifstream& is2);
+    void recept_nevvel(std::string kulcsszo);
+    void randomrecept();
     ~Konyv();
 };
 

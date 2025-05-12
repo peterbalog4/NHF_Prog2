@@ -26,7 +26,7 @@ public:
     void SetNev(std::string knev);
     void WriteRecept(std::ofstream& os);
     Recept ReadRecept(std::ifstream& is);
-    void AddOsszetevo(Osszetevo o);
+    void AddOsszetevo(Osszetevo o, double m);
     void RemoveOsszetevo(int idx);
     void ListOsszetevo();
     void AddLeiras(std::string leiras);

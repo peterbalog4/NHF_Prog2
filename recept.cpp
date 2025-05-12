@@ -2,6 +2,7 @@
 #include "osszetevo.h"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
     /*
     std::string nev;
@@ -158,34 +159,125 @@ Recept Recept::ReadRecept(std::ifstream& is){
 
 //Összetevő kezelő fgvk
 
-void AddOsszetevo(Osszetevo o){
+void Recept::AddOsszetevo(Osszetevo o, double m){
 
+    Osszetevo* uj_osszetevok = new Osszetevo[o_size + 1];
+    double* uj_mennyisegek = new double[o_size + 1];
+
+    for(int i = 0; i < o_size; i++){
+        uj_osszetevok[i] = osszetevok[i];
+        uj_mennyisegek[i] = mennyisegek[i];
+    }
+
+    uj_osszetevok[o_size] = o;
+    uj_mennyisegek[o_size] = m;
+
+    delete[] osszetevok;
+    delete[] mennyisegek;
+
+    osszetevok = uj_osszetevok;
+    mennyisegek = uj_mennyisegek;
+
+    o_size++;
 }
-void RemoveOsszetevo(int idx){
+void Recept::RemoveOsszetevo(int idx){
+    if(o_size <= 1){
+        std::cout << "Az utolsó összetevőt nem lehet törölni!";
+        return;
+    }
+    idx--;
+    if(idx < 0 || idx >= o_size){
+        throw "Hibás index!";
+    }
 
+    Osszetevo* uj_osszetevok = new Osszetevo[o_size - 1];
+    double* uj_mennyisegek = new double[o_size - 1];
+
+    for(int i = 0; i < idx; i++){
+        uj_osszetevok[i] = osszetevok[i];
+        uj_mennyisegek[i] = mennyisegek[i];
+    }
+
+    for(int i = idx + 1; i < o_size; i++){
+        uj_osszetevok[i - 1] = osszetevok[i];
+        uj_mennyisegek[i - 1] = mennyisegek[i];
+    }
+
+    delete[] osszetevok;
+    delete[] mennyisegek;
+    osszetevok = uj_osszetevok;
+    mennyisegek = uj_mennyisegek;
+
+    o_size--;
 }
-void ListOsszetevo(){
+void Recept::ListOsszetevo(){
+    for(int i = 0; i < o_size; i++){
+        std::cout << osszetevok[i];
 
+    }
 }
 
 //Leírás kezelő fgvk
 
-void AddLeiras(std::string leiras);
-void RemoveLeiras(int idx);
-void ListLeiras();
+void Recept::AddLeiras(std::string uj_leiras){
+    if(el_size <= 1){
+        std::cout << "Az utolsó leirást nem lehet törölni!";
+        return;
+    }
+    std::string* uj_leirasok = new std::string[el_size + 1];
+
+    for(int i = 0; i < el_size; i++){
+        uj_leirasok[i] = leiras[i];
+    }
+
+    uj_leirasok[el_size] = uj_leiras;
+
+    delete[] leiras;
+    leiras = uj_leirasok;
+
+    el_size++;
+}
+void Recept::RemoveLeiras(int idx){
+    idx--;
+    if(idx < 0 || idx >= el_size){
+        throw "Hibás index!";
+    }
+
+    std::string* uj_leirasok = new std::string[el_size - 1];
+
+    for(int i = 0; i < idx; i++){
+        uj_leirasok[i] = leiras[i];
+    }
+
+    for(int i = idx + 1; i < el_size; i++){
+        uj_leirasok[i - 1] = leiras[i];
+    }
+
+    delete[] leiras;
+    leiras = uj_leirasok;
+
+    el_size--;
+}
+
+void Recept::ListLeiras(){
+    std::cout << "Elkészítési lépések:" << std::endl;
+    for(int i = 0; i < el_size; i++){
+        std::cout << i + 1 << ". " << leiras[i] << std::endl;
+    }
+}
 
 //Operátorok
 
 std::ostream& operator<<(std::ostream& os, const Recept& r){
-    os << r.GetNev();
-    os << "_____________________________";
+    os << r.GetNev()<< std::endl;
+    os << "_____________________________" << std::endl;
     for(int i=0;i<r.GetOSize();i++){
-        os << i << ".";
+        os << i+1 << ". összetevő: ";
         os << r.GetOsszetevo(i).GetNev() << r.GetMennyiseg(i) << r.GetOsszetevo(i).GetMertekegyseg() << std::endl;
     }
-    os << "_____________________________";
+    os << "_____________________________"<< std::endl;
     for(int i=0;i<r.GetELSize();i++){
-        os << i << ".";
+        os << i+1 << ". lépés: ";
         os << r.GetLeiras(i) << std::endl;
     }
     return os;
