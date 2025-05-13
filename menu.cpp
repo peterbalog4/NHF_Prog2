@@ -261,6 +261,7 @@ void Menu::run(){
                     case 1:{
                         std::cout << "Mi a keresett recept neve?" << std::endl;
                         std::string line;
+                        std::cin.ignore();
                         std::getline(std::cin,line);
                         k.recept_nevvel(line);
                         break;

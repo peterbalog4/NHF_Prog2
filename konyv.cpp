@@ -173,12 +173,16 @@ int randomInRange(int min, int max) {
 
 void Konyv::recept_nevvel(std::string kulcsszo){
 
+    int count;
     for(int i=0;i<r_meret;i++){
         if(receptek[i].GetNev() == kulcsszo){
             std::cout << receptek[i] << std::endl;
+            count++;
         }
     }
-    throw std::runtime_error("Nincs ilyen nevű recept");
+    if(count < 1){
+        std::cout << "Nincs ilyen recept!";
+    }
 }
 
 void Konyv::randomrecept(){
