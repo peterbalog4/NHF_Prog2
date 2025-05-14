@@ -1,20 +1,25 @@
 # depslib dependency file v1.0
-1745855814 source:c:\users\190015\downloads\bpnhf3\konyv.cpp
+1747242606 source:e:\suli\egyetem\prog2\nhf\konyv.cpp
 	"konyv.h"
+	"osszetevo.h"
+	"recept.h"
 	<iostream>
 	"memtrace.h"
 	<cstring>
+	<windows.h>
+	<fstream>
+	<random>
 
-1745857824 c:\users\190015\downloads\bpnhf3\konyv.h
+1747242591 e:\suli\egyetem\prog2\nhf\konyv.h
 	"osszetevo.h"
 	"memtrace.h"
 	"recept.h"
 
-1745855814 c:\users\190015\downloads\bpnhf3\osszetevo.h
+1746988633 e:\suli\egyetem\prog2\nhf\osszetevo.h
 	<string>
 	"memtrace.h"
 
-1746770989 c:\users\190015\downloads\bpnhf3\memtrace.h
+1746774261 e:\suli\egyetem\prog2\nhf\memtrace.h
 	<new>
 	<cstdio>
 	<stdlib.h>
@@ -37,51 +42,12 @@
 	<iterator>
 	<regex>
 
-1745857802 c:\users\190015\downloads\bpnhf3\recept.h
+1747241434 e:\suli\egyetem\prog2\nhf\recept.h
 	"osszetevo.h"
 	<string>
 	"memtrace.h"
 
-1746770996 source:c:\users\190015\downloads\bpnhf3\memtrace.cpp
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	<ctype.h>
-	"memtrace.h"
-
-1746774261 source:c:\users\petib\downloads\nhf_prog2-main\memtrace.cpp
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<time.h>
-	<ctype.h>
-	"memtrace.h"
-
-1746774261 c:\users\petib\downloads\nhf_prog2-main\memtrace.h
-	<new>
-	<cstdio>
-	<stdlib.h>
-	<iostream>
-	<fstream>
-	<sstream>
-	<vector>
-	<list>
-	<map>
-	<algorithm>
-	<functional>
-	<memory>
-	<iomanip>
-	<locale>
-	<typeinfo>
-	<ostream>
-	<stdexcept>
-	<ctime>
-	<random>
-	<iterator>
-	<regex>
-
-1747068282 source:c:\users\petib\downloads\nhf_prog2-main\main.cpp
+1747068282 source:e:\suli\egyetem\prog2\nhf\main.cpp
 	<iostream>
 	"osszetevo.h"
 	"gtest_lite.h"
@@ -90,11 +56,7 @@
 	"menu.h"
 	<windows.h>
 
-1746988633 c:\users\petib\downloads\nhf_prog2-main\osszetevo.h
-	<string>
-	"memtrace.h"
-
-1746774261 c:\users\petib\downloads\nhf_prog2-main\gtest_lite.h
+1746774261 e:\suli\egyetem\prog2\nhf\gtest_lite.h
 	<iostream>
 	<cassert>
 	<cmath>
@@ -107,19 +69,17 @@
 	<regex>
 	"memtrace.h"
 
-1747072160 c:\users\petib\downloads\nhf_prog2-main\konyv.h
-	"osszetevo.h"
+1747243441 e:\suli\egyetem\prog2\nhf\menu.h
+
+1746774261 source:e:\suli\egyetem\prog2\nhf\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
 	"memtrace.h"
-	"recept.h"
 
-1747068840 c:\users\petib\downloads\nhf_prog2-main\recept.h
-	"osszetevo.h"
-	<string>
-	"memtrace.h"
-
-1746774261 c:\users\petib\downloads\nhf_prog2-main\menu.h
-
-1747151659 source:c:\users\petib\downloads\nhf_prog2-main\menu.cpp
+1747243526 source:e:\suli\egyetem\prog2\nhf\menu.cpp
 	<iostream>
 	"osszetevo.h"
 	"gtest_lite.h"
@@ -128,25 +88,7 @@
 	"menu.h"
 	<windows.h>
 
-1747072292 source:c:\users\petib\downloads\nhf_prog2-main\konyv.cpp
-	"konyv.h"
-	"osszetevo.h"
-	"recept.h"
-	<iostream>
-	"memtrace.h"
-	<cstring>
-	<windows.h>
-	<fstream>
-	<random>
-
-1747071448 source:c:\users\petib\downloads\nhf_prog2-main\recept.cpp
-	"recept.h"
-	"osszetevo.h"
-	<fstream>
-	<sstream>
-	<iostream>
-
-1746988641 source:c:\users\petib\downloads\nhf_prog2-main\osszetevo.cpp
+1746988641 source:e:\suli\egyetem\prog2\nhf\osszetevo.cpp
 	"osszetevo.h"
 	<iostream>
 	<fstream>
@@ -154,4 +96,11 @@
 	<string>
 	<cstring>
 	<sstream>
+
+1747243342 source:e:\suli\egyetem\prog2\nhf\recept.cpp
+	"recept.h"
+	"osszetevo.h"
+	<fstream>
+	<sstream>
+	<iostream>
 

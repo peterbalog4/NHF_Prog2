@@ -4,14 +4,6 @@
 #include <sstream>
 #include <iostream>
 
-    /*
-    std::string nev;
-    double* mennyisegek;
-    Osszetevo* osszetevok;
-    std::string* leiras;
-    int o_size;
-    int el_size;*/
-
 //Konstruktorok
 Recept::Recept(): nev("ures"), mennyisegek(NULL),osszetevok(NULL),leiras(NULL){}
 

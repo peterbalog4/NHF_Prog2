@@ -58,7 +58,6 @@ void Menu::run(){
                     break;
                 }
                 case 2:{
-                    int idx;
                     k.ListOsszetevok();
                     std::cout << "Melyik összetevőt szeretnéd törölni?" << std::endl;
                     std::cin >> idx;
@@ -85,7 +84,7 @@ void Menu::run(){
                 std::cout << "Hány darab összetevőt szeretnél?" << std::endl;
                 int o_size;
                 std::cin >> o_size;
-                if(o_size <= 0){
+                if(o_size <= 0 || std::cin.fail()){
                     throw "hibás index!";
                 }
                 Osszetevo* osszetevok;
@@ -96,7 +95,6 @@ void Menu::run(){
                 for(int i=0;i<o_size;i++){
                     k.ListOsszetevok();
                     std::cout << "Milyen összetevő kerüljön bele?" << std::endl;
-                    int idx2;
                     std::cin >> idx2;
                     osszetevok[i] = k.GetOsszetevok(idx2);
                     std::cout << "Mennyi kerüljön bele?" << std::endl;
@@ -134,10 +132,10 @@ void Menu::run(){
                     case 1:{
                         std::cout << "Melyik receptet módosítsuk?" << std::endl;
                         k.ListReceptek();
-                        int idx;
+                        std::cout << "Választás:";
                         std::cin >> idx;
                         std::cout << "Mit módosítsunk? \n 1. Név\n 2. Összetevők\n 3. Leírás \n" << std::endl;
-                        int idx2;
+                        std::cout << "Választás:";
                         std::cin >> idx2;
                         if(idx2 < 1 || idx2 > 3){
                             throw "index hiba!";
@@ -145,14 +143,15 @@ void Menu::run(){
                         switch(idx2){
                             case 1:{
                                 std::cout << "Mi legyen az új név?" << std::endl;
+                                std::cout << "Választás:";
                                 std::string line;
+                                std::cin.ignore();
                                 std::getline(std::cin,line);
                                 k.GetReceptek(idx).SetNev(line);
                                 break;
                             }
                             case 2:{
                                 std::cout << "Hozzáadjunk(1) vagy Töröljünk(2) összetevőt?" << std::endl;
-                                int idx3;
                                 std::cin >> idx3;
                                 if(idx3 < 1 || idx3 > 2){
                                     throw "Index hiba!";
@@ -195,7 +194,6 @@ void Menu::run(){
                             }
                             case 3:{
                                 std::cout << "Hozzáadjunk(1) vagy Töröljünk(2) leírást?";
-                                int idx3;
                                 std::cin >> idx3;
                                 if(idx3 < 1 || idx3 > 2){
                                     throw "Index hiba!";
@@ -205,7 +203,9 @@ void Menu::run(){
                                     int valasz;
                                     std::cin >> valasz;
                                     for(int i=0;i<valasz;i++){
+                                        std::cout << "Leírás:";
                                         std::string leiras;
+                                        std::cin.ignore();
                                         std::getline(std::cin,leiras);
                                         k.GetReceptek(idx).AddLeiras(leiras);
                                     }
@@ -229,6 +229,7 @@ void Menu::run(){
                                 break;
                                 }
                         }
+                        break;
                     }
                     case 2:{
                         if(k.GetOMeret() <= 1){
@@ -237,12 +238,13 @@ void Menu::run(){
                         }
                         k.ListReceptek();
                         std::cout << "Melyik receptet távolítsuk el?";
-                        int idx;
                         std::cin >> idx;
                         k.RemoveRecept(idx);
+                        break;
                     }
                     case 3:{
                         k.ListReceptek();
+                        break;
                     }
                     case 4:{
                     van_e =true;

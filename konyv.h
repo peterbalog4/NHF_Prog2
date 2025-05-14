@@ -25,10 +25,10 @@ public:
     void AddRecept(Recept r);
     void RemoveRecept(int idx);
     void ListReceptek();
-    int GetOMeret();
-    int GetOCapacity();
-    int GetRMeret();
-    int GetRCapacity();
+    int GetOMeret() const;
+    int GetOCapacity() const;
+    int GetRMeret() const;
+    int GetRCapacity() const;
     Osszetevo GetOsszetevok(int idx);
     Recept GetReceptek(int idx);
     void save(std::ofstream& os1,std::ofstream& os2);

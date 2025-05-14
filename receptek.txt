@@ -1,2 +1,3 @@
-1
-Recept|2|2|s;d,S;db,|32,23,|saf,asg,
+2
+T k r|2|2|s;d,ures;db,|23,32,|Sz    ,     ,
+Recept|2|2|s;d,s;d,|42,42,|Leir1,Leir2,

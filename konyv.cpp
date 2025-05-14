@@ -131,16 +131,16 @@ void Konyv::ListReceptek(){
 }
 
 //Getterek
-int Konyv::GetOMeret(){
+int Konyv::GetOMeret() const{
     return o_meret;
 }
-int Konyv::GetOCapacity(){
+int Konyv::GetOCapacity() const{
     return o_capacity;
 }
-int Konyv::GetRMeret(){
+int Konyv::GetRMeret() const{
     return r_meret;
 }
-int Konyv::GetRCapacity(){
+int Konyv::GetRCapacity() const{
     return r_capacity;
 }
 Osszetevo Konyv::GetOsszetevok(int idx){
