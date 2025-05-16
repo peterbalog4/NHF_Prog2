@@ -190,7 +190,7 @@ void Recept::RemoveOsszetevo(int idx){
     }
 
 
-    for(int i = idx; i < o_size; i++){
+    for(int i = idx+1; i < o_size; i++){
         uj_osszetevok[i-1] = osszetevok[i];
         uj_mennyisegek[i-1] = mennyisegek[i];
     }
