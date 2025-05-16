@@ -4,15 +4,8 @@
 #include <iostream>
 #include "memtrace.h"
 #include <cstring>
-#include <windows.h>
 #include <fstream>
 #include <random>
-
-//static init
-int Konyv::o_meret = 0;
-int Konyv::o_capacity = 10;
-int Konyv::r_meret = 0;
-int Konyv::r_capacity = 10;
 
 // Bővítő template
 template <typename T>
@@ -32,7 +25,7 @@ T* Array(T* oldarray, int oldmeret){
 //Könyv class fgvk
 
 //Konstruktor
-Konyv::Konyv(){
+Konyv::Konyv(): o_meret(0), o_capacity(10), r_meret(0), r_capacity(10){
     all_osszetevo = new Osszetevo[o_capacity];
     receptek = new Recept[r_capacity];
 }

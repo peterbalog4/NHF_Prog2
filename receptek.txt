@@ -1,3 +1,5 @@
-2
-T k r|2|2|s;d,ures;db,|23,32,|Sz    ,     ,
-Recept|2|2|s;d,s;d,|42,42,|Leir1,Leir2,
+4
+Recept|2|2|s;d,s;d,|4,4,|Leir1,Leir2,
+Recept1|1|1|Osszetevo1;db,|1,|Lepes1,
+Recept2|2|2|Osszetevo1;db,Osszetevo2;l,|1,2,|Lepes1,Lepes2,
+Recept3|3|3|Osszetevo1;db,Osszetevo2;l,Osszetevo3;kg,|1,2,3,|Lepes1,Lepes2,Lepes3,

@@ -177,7 +177,6 @@ void Recept::RemoveOsszetevo(int idx){
         std::cout << "Az utolsó összetevőt nem lehet törölni!";
         return;
     }
-    idx--;
     if(idx < 0 || idx >= o_size){
         throw "Hibás index!";
     }
@@ -190,10 +189,12 @@ void Recept::RemoveOsszetevo(int idx){
         uj_mennyisegek[i] = mennyisegek[i];
     }
 
-    for(int i = idx + 1; i < o_size; i++){
-        uj_osszetevok[i - 1] = osszetevok[i];
-        uj_mennyisegek[i - 1] = mennyisegek[i];
+
+    for(int i = idx; i < o_size; i++){
+        uj_osszetevok[i-1] = osszetevok[i];
+        uj_mennyisegek[i-1] = mennyisegek[i];
     }
+
 
     delete[] osszetevok;
     delete[] mennyisegek;
@@ -230,7 +231,7 @@ void Recept::AddLeiras(std::string uj_leiras){
     el_size++;
 }
 void Recept::RemoveLeiras(int idx){
-    idx--;
+    //idx--;
     if(idx < 0 || idx >= el_size){
         throw "Hibás index!";
     }
@@ -261,11 +262,12 @@ void Recept::ListLeiras(){
 //Operátorok
 
 std::ostream& operator<<(std::ostream& os, const Recept& r){
+    os << std::endl << "----------------------------------------------------" << std::endl;
     os << r.GetNev()<< std::endl;
     os << "_____________________________" << std::endl;
     for(int i=0;i<r.GetOSize();i++){
         os << i+1 << ". összetevő: ";
-        os << r.GetOsszetevo(i).GetNev() << r.GetMennyiseg(i) << r.GetOsszetevo(i).GetMertekegyseg() << std::endl;
+        os << r.GetOsszetevo(i).GetNev() << "  " << r.GetMennyiseg(i) << r.GetOsszetevo(i).GetMertekegyseg() << std::endl;
     }
     os << "_____________________________"<< std::endl;
     for(int i=0;i<r.GetELSize();i++){

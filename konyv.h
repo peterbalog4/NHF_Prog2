@@ -10,10 +10,10 @@ class Konyv{
 private:
     Osszetevo* all_osszetevo;
     Recept* receptek;
-    static int o_meret;
-    static int o_capacity;
-    static int r_meret;
-    static int r_capacity;
+    int o_meret;
+    int o_capacity;
+    int r_meret;
+    int r_capacity;
 
 
 public:

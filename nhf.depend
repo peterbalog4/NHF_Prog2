@@ -1,0 +1,106 @@
+# depslib dependency file v1.0
+1747377884 source:c:\users\190015\nhf\konyv.cpp
+	"konyv.h"
+	"osszetevo.h"
+	"recept.h"
+	<iostream>
+	"memtrace.h"
+	<cstring>
+	<fstream>
+	<random>
+
+1747244126 c:\users\190015\nhf\konyv.h
+	"osszetevo.h"
+	"memtrace.h"
+	"recept.h"
+
+1746988633 c:\users\190015\nhf\osszetevo.h
+	<string>
+	"memtrace.h"
+
+1746774261 c:\users\190015\nhf\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<random>
+	<iterator>
+	<regex>
+
+1747248669 c:\users\190015\nhf\recept.h
+	"osszetevo.h"
+	<string>
+	"memtrace.h"
+
+1747243711 source:c:\users\190015\nhf\main.cpp
+	<iostream>
+	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
+	"menu.h"
+	<windows.h>
+
+1746774261 c:\users\190015\nhf\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<cstdlib>
+	<string>
+	<fstream>
+	<iterator>
+	<regex>
+	"memtrace.h"
+
+1747243441 c:\users\190015\nhf\menu.h
+
+1746774261 source:c:\users\190015\nhf\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1747380285 source:c:\users\190015\nhf\menu.cpp
+	<iostream>
+	"osszetevo.h"
+	"gtest_lite.h"
+	"memtrace.h"
+	"konyv.h"
+	"menu.h"
+	"recept.h"
+	<windows.h>
+
+1746988641 source:c:\users\190015\nhf\osszetevo.cpp
+	"osszetevo.h"
+	<iostream>
+	<fstream>
+	"memtrace.h"
+	<string>
+	<cstring>
+	<sstream>
+
+1747379920 source:c:\users\190015\nhf\recept.cpp
+	"recept.h"
+	"osszetevo.h"
+	<fstream>
+	<sstream>
+	<iostream>
+

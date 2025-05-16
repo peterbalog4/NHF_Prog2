@@ -1,6 +1,6 @@
 5
-s|d
-s|d
-s|d
-s|d
-S|db
+Osszetevo1|db
+Osszetevo2|l
+Osszetevo3|kg
+Osszetevo4|ml
+Osszetevo5|cm

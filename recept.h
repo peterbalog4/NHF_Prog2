@@ -33,6 +33,8 @@ public:
     void RemoveLeiras(int idx);
     void ListLeiras();
     Recept& operator=(const Recept& r);
+    //int sajatstoi(std::string line);
+    //double sajatstod(std::string line);
     ~Recept();
 
 };
