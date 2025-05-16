@@ -15,7 +15,7 @@ private:
     int el_size;
 public:
     Recept();
-    Recept(std::string knev, double* kmennyisegek=NULL, int ko_size=0, Osszetevo* kosszetevok = NULL,int kel_size=0, std::string* kleiras = NULL);
+    Recept(std::string knev, double* kmennyisegek, int ko_size, Osszetevo* kosszetevok,int kel_size, std::string* kleiras);
     Recept(const Recept& r);
     std::string GetNev() const;
     int GetOSize() const;
@@ -33,6 +33,8 @@ public:
     void RemoveLeiras(int idx);
     void ListLeiras();
     Recept& operator=(const Recept& r);
+    //int sajatstoi(std::string line);
+    //double sajatstod(std::string line);
     ~Recept();
 
 };

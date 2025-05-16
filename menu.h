@@ -4,12 +4,10 @@
 class Menu{
 
 private:
-    int idx;
+    int idx,idx2,idx3;
 
 public:
     void run();
-    void backtomainmenu();
-    void navigal(int idx);
 
 };
 

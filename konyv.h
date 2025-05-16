@@ -10,10 +10,10 @@ class Konyv{
 private:
     Osszetevo* all_osszetevo;
     Recept* receptek;
-    static int o_meret;
-    static int o_capacity;
-    static int r_meret;
-    static int r_capacity;
+    int o_meret;
+    int o_capacity;
+    int r_meret;
+    int r_capacity;
 
 
 public:
@@ -25,10 +25,10 @@ public:
     void AddRecept(Recept r);
     void RemoveRecept(int idx);
     void ListReceptek();
-    int GetOMeret();
-    int GetOCapacity();
-    int GetRMeret();
-    int GetRCapacity();
+    int GetOMeret() const;
+    int GetOCapacity() const;
+    int GetRMeret() const;
+    int GetRCapacity() const;
     Osszetevo GetOsszetevok(int idx);
     Recept GetReceptek(int idx);
     void save(std::ofstream& os1,std::ofstream& os2);

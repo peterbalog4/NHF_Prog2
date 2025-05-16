@@ -4,6 +4,7 @@
 #include "memtrace.h"
 #include "konyv.h"
 #include "menu.h"
+#include "recept.h"
 #if defined(WIN32) || defined(_WIN32) || defined(WIN64) || defined(_WIN64)
 #include <windows.h>
 #endif
@@ -30,6 +31,7 @@ void Menu::run(){
     bool van_e = true;
     // A konkrét menü
     while(van_e){
+        std::cout << std::endl << "----------------------------------------------------" << std::endl;
         std::cout << "Koktélos Könyv\n" << "1. Összetevõk\n" << "2. Új recept\n" << "3. Receptek kezelése\n" << "4. Keresés\n" << "5. Kilépés\n" <<"Választás:";
         std::cin >> idx;
         if(idx < 1 || idx > 5){
@@ -58,7 +60,6 @@ void Menu::run(){
                     break;
                 }
                 case 2:{
-                    int idx;
                     k.ListOsszetevok();
                     std::cout << "Melyik összetevőt szeretnéd törölni?" << std::endl;
                     std::cin >> idx;
@@ -85,7 +86,7 @@ void Menu::run(){
                 std::cout << "Hány darab összetevőt szeretnél?" << std::endl;
                 int o_size;
                 std::cin >> o_size;
-                if(o_size <= 0){
+                if(o_size <= 0 || std::cin.fail()){
                     throw "hibás index!";
                 }
                 Osszetevo* osszetevok;
@@ -96,9 +97,8 @@ void Menu::run(){
                 for(int i=0;i<o_size;i++){
                     k.ListOsszetevok();
                     std::cout << "Milyen összetevő kerüljön bele?" << std::endl;
-                    int idx2;
                     std::cin >> idx2;
-                    osszetevok[i] = k.GetOsszetevok(idx2);
+                    osszetevok[i] = k.GetOsszetevok(idx2-1);
                     std::cout << "Mennyi kerüljön bele?" << std::endl;
                     double m;
                     std::cin >> m;
@@ -134,10 +134,13 @@ void Menu::run(){
                     case 1:{
                         std::cout << "Melyik receptet módosítsuk?" << std::endl;
                         k.ListReceptek();
-                        int idx;
+                        std::cout << "Választás:";
                         std::cin >> idx;
+                        if(idx < 1 || idx > k.GetRMeret()){
+                            throw "index hiba!";
+                        }
                         std::cout << "Mit módosítsunk? \n 1. Név\n 2. Összetevők\n 3. Leírás \n" << std::endl;
-                        int idx2;
+                        std::cout << "Választás:";
                         std::cin >> idx2;
                         if(idx2 < 1 || idx2 > 3){
                             throw "index hiba!";
@@ -145,14 +148,16 @@ void Menu::run(){
                         switch(idx2){
                             case 1:{
                                 std::cout << "Mi legyen az új név?" << std::endl;
+                                std::cout << "Választás:";
                                 std::string line;
+                                std::cin.ignore();
                                 std::getline(std::cin,line);
-                                k.GetReceptek(idx).SetNev(line);
+                                k.GetReceptek(idx-1).SetNev(line);
                                 break;
                             }
                             case 2:{
                                 std::cout << "Hozzáadjunk(1) vagy Töröljünk(2) összetevőt?" << std::endl;
-                                int idx3;
+                                std::cout << "Választás:";
                                 std::cin >> idx3;
                                 if(idx3 < 1 || idx3 > 2){
                                     throw "Index hiba!";
@@ -172,30 +177,34 @@ void Menu::run(){
                                         std::cout << "És mennyit?"<< std::endl;
                                         double m;
                                         std::cin >> m;
-                                        k.GetReceptek(idx).AddOsszetevo(k.GetOsszetevok(valasz2),m);
+                                        k.GetReceptek(idx-1).AddOsszetevo(k.GetOsszetevok(valasz2-1),m);
+                                        break;
                                     }
                                 }
                                 if(idx3 == 2){
-                                    if(k.GetReceptek(idx).GetOSize() <= 1){
+                                    if(k.GetReceptek(idx-1).GetOSize() <= 1){
                                         std::cout << "Az utolsó összetevőt nem lehet törölni!";
                                         return;
                                     }
                                     std::cout << "Hány darabot töröljünk?" << std::endl;
                                     int valasz;
                                     std::cin >> valasz;
+                                    if(valasz < 0 || valasz > k.GetReceptek(idx-1).GetOSize()-1){
+                                        throw "Érték hiba!";
+                                    }
                                     for(int i=0;i<valasz;i++){
-                                        k.GetReceptek(idx).ListOsszetevo();
+                                        k.GetReceptek(idx-1).ListOsszetevo();
                                         std::cout << "Melyiket töröljük?" <<std::endl;
                                         int valasz2;
                                         std::cin >> valasz2;
-                                        k.GetReceptek(idx).RemoveOsszetevo(valasz2);
+                                        k.GetReceptek(idx-1).RemoveOsszetevo(valasz2-1);
                                     }
+                                    break;
                                 }
                                 break;
                             }
                             case 3:{
                                 std::cout << "Hozzáadjunk(1) vagy Töröljünk(2) leírást?";
-                                int idx3;
                                 std::cin >> idx3;
                                 if(idx3 < 1 || idx3 > 2){
                                     throw "Index hiba!";
@@ -205,44 +214,51 @@ void Menu::run(){
                                     int valasz;
                                     std::cin >> valasz;
                                     for(int i=0;i<valasz;i++){
+                                        std::cout << "Leírás:";
                                         std::string leiras;
+                                        std::cin.ignore();
                                         std::getline(std::cin,leiras);
-                                        k.GetReceptek(idx).AddLeiras(leiras);
+                                        k.GetReceptek(idx-1).AddLeiras(leiras);
                                     }
                                 }
                                 if(idx3 == 2){
-                                    if(k.GetReceptek(idx).GetELSize() <= 1){
+                                    if(k.GetReceptek(idx-1).GetELSize() <= 1){
                                         std::cout << "Az utolsó leírást nem lehet törölni!";
                                         return;
                                     }
                                     std::cout << "Hány darabot töröljünk?" << std::endl;
                                     int valasz;
                                     std::cin >> valasz;
+                                    if(valasz < 0 || valasz > k.GetReceptek(idx-1).GetELSize()-1){
+                                        throw "Érték hiba!";
+                                    }
                                     for(int i=0;i<valasz;i++){
-                                        k.GetReceptek(idx).ListLeiras();
+                                        k.GetReceptek(idx-1).ListLeiras();
                                         std::cout << "Melyiket töröljük?" <<std::endl;
                                         int valasz2;
                                         std::cin >> valasz2;
-                                        k.GetReceptek(idx).RemoveLeiras(valasz2);
+                                        k.GetReceptek(idx-1).RemoveLeiras(valasz2-1);
                                     }
                                 }
                                 break;
                                 }
                         }
+                        break;
                     }
                     case 2:{
-                        if(k.GetOMeret() <= 1){
+                        if(k.GetRMeret() <= 1){
                             std::cout << "Az utolsó receptet nem lehet törölni!";
                             return;
                         }
                         k.ListReceptek();
                         std::cout << "Melyik receptet távolítsuk el?";
-                        int idx;
                         std::cin >> idx;
                         k.RemoveRecept(idx);
+                        break;
                     }
                     case 3:{
                         k.ListReceptek();
+                        break;
                     }
                     case 4:{
                     van_e =true;
